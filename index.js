@@ -1,10 +1,10 @@
-// Active les animations seulement si le JS fonctionne
+
 document.documentElement.classList.add('js');
 
-// Année automatique dans le footer
+// année automatique dans le footer
 document.getElementById('annee').textContent = new Date().getFullYear();
 
-// Menu burger (mobile)
+// menu burger pour le mobile
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav');
 burger.addEventListener('click', () => {
@@ -18,7 +18,7 @@ nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   burger.setAttribute('aria-expanded', 'false');
 }));
 
-// Lien actif selon la section visible
+
 const liens = [...nav.querySelectorAll('a')];
 const sections = ['accueil', 'competences', 'projets', 'contact']
   .map(id => document.getElementById(id));
@@ -32,7 +32,7 @@ const obsLiens = new IntersectionObserver(entrees => {
 sections.forEach(s => s && obsLiens.observe(s));
 
 
-// Apparition des sections au scroll
+// fait apparaitre les sections lors scroll
 const obsReveal = new IntersectionObserver(entrees => {
   entrees.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); obsReveal.unobserve(e.target); }
